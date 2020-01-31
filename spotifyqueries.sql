@@ -1,20 +1,34 @@
 -- Create tables for raw data to be loaded into 
+DROP TABLE IF EXISTS spotify_list;
+DROP TABLE IF EXISTS hotstuff;
+
 CREATE TABLE spotify_list (
     id INT PRIMARY KEY,
-    title TEXT,
-    artist TEXT,
-    top genre TEXT,
-    year DATE,
-    bpm INT ,
-    nrgy INT ,
-    dnce INT ,
-    dB INT ,
-    live INT ,
-    val INT ,
-    dur INT ,
-    acous INT ,
-    spch INT ,
-    pop INT ,
+    title VARCHAR,
+    artist VARCHAR,
+    top_genre VARCHAR,
+	year INT
     );
 
-CREATE TABLE 
+CREATE TABLE hotstuff ( 
+    url VARCHAR,
+    weekID DATE ,
+    week_position INT,
+    song VARCHAR,
+    performer VARCHAR,
+    songID VARCHAR
+    );
+	
+	
+SELECT hotstuff.url,
+        hotstuff.weekid,
+       	hotstuff.week_position,
+        hotstuff.song,
+        hotstuff.performer,
+        hotstuff.songID
+FROM hotstuff
+JOIN spotify_list
+ON hotstuff.Performer = spotify_list.artist;
+
+SELECT* FROM spotify_list;
+
